@@ -4,7 +4,7 @@ const About = React.forwardRef((props, ref) => {
   return (
     <>
       <div className="w-full flex flex-col items-center justify-center mt-40 text-center">
-        <h1 className="text-3xl sm:text-4xl font-bold text-teal-500 mb-4">
+        <h1 className="text-2xl sm:text-4xl font-bold text-teal-500 mb-4">
           Discover Your Frontend Developer
         </h1>
         <p className="text-lg">
