@@ -1,4 +1,5 @@
 import whiteLogo from "../assets/white-logo.png";
+import githubfooter from "../assets/githubfooter.png";
 import linkedin from "../assets/linkedin.png";
 import facebook from "../assets/facebook.png";
 import insta from "../assets/insta.png";
@@ -16,6 +17,12 @@ function Footer() {
         time
       </p>
       <div className="flex gap-4 mb-6">
+      <a
+          href="https://github.com/Ankita18102"
+          target="_blank"
+        >
+          <img src={githubfooter} alt="github" className="w-10"></img>
+        </a>
         <a
           href="https://www.linkedin.com/in/ankita-ray-6248301b2/"
           target="_blank"

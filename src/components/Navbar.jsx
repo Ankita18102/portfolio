@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png";
 import Hamburger from "hamburger-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Navbar = ({
   aboutScroll,
@@ -10,7 +10,18 @@ const Navbar = ({
   projectsScroll,
 }) => {
   const navigate = useNavigate();
+  const handleScroll = () => {
+    setIsScrolled(window.scrollY > 0);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   const [isOpen, setOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const handleClick = () => {
     navigate("/contact");
   };
@@ -19,13 +30,17 @@ const Navbar = ({
     <>
       <div className="flex bg-white text-teal-600 items-center justify-between w-full px-10 py-2 z-50 shadow-md top-0 fixed md:hidden">
         <a href="/">
-          <img src={logo} alt="Logo" className="w-14 mt-2" />
+          <img src={logo} alt="Logo" className="w-14" />
         </a>
         <Hamburger toggled={isOpen} toggle={setOpen} />
       </div>
-      <nav className={`hidden md:flex font-roboto-slab text-xl bg-white text-teal-600 items-center justify-between w-full px-10 py-2 z-50 shadow-md top-0 fixed transition-transform duration-500 ${
-        isOpen ? "translate-y-14 transition duration-300" : "translate-y-0"
-      }`}>
+      <nav
+        className={`hidden md:flex font-roboto-slab text-xl bg-white text-teal-600 items-center justify-between w-full px-10 py-2 z-50 top-0 fixed ${
+          isScrolled
+            ? "bg-white shadow-md transform ease-in duration-500 translate-y-0"
+            : ""
+        }`}
+      >
         <ul className="flex items-center justify-center gap-10 cursor-pointer">
           <a href="/">
             <img src={logo} alt="Logo" className="w-14" />
@@ -44,16 +59,47 @@ const Navbar = ({
       </nav>
       {/* Drawer */}
       <div
-        className={`${
+        className={`bg-white text-teal-600 text-xl fixed top-16 left-0 w-full z-50 shadow-md ${
           isOpen ? "block" : "hidden"
-        } transition-max-height duration-500 overflow-hidden md:hidden bg-white text-teal-600 fixed top-16 left-0 w-full z-50 shadow-md `}
-        
+        }`}
       >
-        <ul className="ml-12 my-2">
-          <li className="py-2" onClick={() => { aboutScroll(); setOpen(false); }}>About</li>
-          <li className="py-2" onClick={() => { skillsScroll(); setOpen(false); }}>Skills</li>
-          <li className="py-2" onClick={() => { experienceScroll(); setOpen(false); }}>Experience</li>
-          <li className="py-2" onClick={() => { projectsScroll(); setOpen(false); }}>Projects</li>
+        <ul className="ml-12 my-6">
+          <li
+            className="py-2"
+            onClick={() => {
+              aboutScroll();
+              setOpen(false);
+            }}
+          >
+            About
+          </li>
+          <li
+            className="py-2"
+            onClick={() => {
+              skillsScroll();
+              setOpen(false);
+            }}
+          >
+            Skills
+          </li>
+          <li
+            className="py-2"
+            onClick={() => {
+              experienceScroll();
+              setOpen(false);
+            }}
+          >
+            Experience
+          </li>
+          <li
+            className="py-2"
+            onClick={() => {
+              projectsScroll();
+              setOpen(false);
+            }}
+          >
+            Projects
+          </li>
         </ul>
       </div>
     </>
