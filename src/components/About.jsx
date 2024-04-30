@@ -7,10 +7,10 @@ const About = React.forwardRef((props, ref) => {
         <h1 className="text-2xl sm:text-4xl font-bold text-teal-500 mb-4">
           Discover Your Frontend Developer
         </h1>
-        <p className="text-lg">
+        <p className="text-lg px-10 md:px-0">
           I design and code beautifully simple things, and I love what I do.
         </p>
-        <img src={heroimg} alt="Icon" />
+        <img src={heroimg} alt="Icon"/>
         <button className="border-2 rounded-full px-3 py-2 text-white font-roboto-slab bg-gradient-to-br from-teal-600 to-teal-500 text-lg md:text-xl shadow-lg border-teal-600 hover:from-white hover:to-teal-100 hover:text-teal-600 transition duration-300 my-4">
           Download Resume
         </button>
