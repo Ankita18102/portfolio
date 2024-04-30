@@ -11,7 +11,7 @@ const About = React.forwardRef((props, ref) => {
           I design and code beautifully simple things, and I love what I do.
         </p>
         <img src={heroimg} alt="Icon" />
-        <button className="border-2 rounded-full px-3 py-2 text-white font-roboto-slab bg-gradient-to-br from-teal-600 to-teal-500 text-xl shadow-lg border-teal-600 hover:from-white hover:to-teal-100 hover:text-teal-600 transition duration-300 my-4">
+        <button className="border-2 rounded-full px-3 py-2 text-white font-roboto-slab bg-gradient-to-br from-teal-600 to-teal-500 text-lg md:text-xl shadow-lg border-teal-600 hover:from-white hover:to-teal-100 hover:text-teal-600 transition duration-300 my-4">
           Download Resume
         </button>
         <div
