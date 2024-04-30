@@ -10,7 +10,7 @@ const Navbar = ({ aboutScroll, skillsScroll, experienceScroll, projectsScroll })
   };
 
   return (
-    <nav className="font-roboto-slab text-xl bg-white text-teal-600 flex items-center justify-between w-full px-10 py-2 z-50 shadow-md top-0 fixed">
+    <nav className="hidden md:flex font-roboto-slab text-xl bg-white text-teal-600  items-center justify-between w-full px-10 py-2 z-50 shadow-md top-0 fixed">
       <ul className="flex items-center justify-center gap-10 cursor-pointer">
         <a href="/">
           <img src={logo} alt="Logo" className="w-14"/>

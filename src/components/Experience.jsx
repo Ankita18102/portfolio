@@ -104,15 +104,15 @@ const Experience = React.forwardRef((props, ref) => {
         ref={ref}
       >
         <h1 className="text-3xl font-semibold mb-4">Professional Experience</h1>
-        <p className="text-xl">
+        <p className="text-xl text-center mx-10">
           Here are some of the frontend development roles and projects I&apos;ve
           been involved in:
         </p>
-        <div className="flex w-full gap-6 mt-20 px-40">
+        <div className="flex flex-col xl:flex-row w-full gap-6 mt-20 px-10 md:px-20 lg:px-40">
           {projects.map((project) => (
             <div
               key={project.id}
-              className="project-slide bg-white rounded-lg shadow-md p-10"
+              className="project-slide bg-white rounded-xl shadow-md hover:shadow-lg p-10"
             >
               <div className="relative">
                 <img

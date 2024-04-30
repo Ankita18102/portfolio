@@ -7,7 +7,7 @@ import email from "../assets/email.png";
 function Footer() {
     const currentYear = new Date().getFullYear();
   return (
-    <footer className="bg-teal-500 flex flex-col items-center justify-center text-white p-10">
+    <footer className="bg-teal-500 flex flex-col items-center justify-center text-white p-10 text-center">
       <a href="/">
         <img src={whiteLogo} alt="Logo" className="w-20"></img>
       </a>
