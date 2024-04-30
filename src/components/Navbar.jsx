@@ -28,7 +28,14 @@ const Navbar = ({
 
   return (
     <>
-      <div className="flex bg-white text-teal-600 items-center justify-between w-full px-4 py-2 z-50 shadow-md top-0 fixed md:hidden">
+      <div
+        className={`flex text-teal-500 items-center justify-between w-full px-4 py-2 z-50 top-0 fixed md:hidden
+      ${
+        isScrolled
+          ? "bg-white shadow-md transform ease-in duration-200 translate-y-0"
+          : ""
+      }`}
+      >
         <a href="/">
           <img src={logo} alt="Logo" className="w-14" />
         </a>
@@ -99,6 +106,9 @@ const Navbar = ({
             }}
           >
             Projects
+          </li>
+          <li className="py-2" onClick={handleClick}>
+            Contact
           </li>
         </ul>
       </div>
