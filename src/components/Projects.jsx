@@ -1,8 +1,71 @@
 import React from "react";
-const Projects = React.forwardRef((props,ref) => {
+import crud from "../assets/crud.png";
+import memorygame from "../assets/memory-game.png";
+import surveyform from "../assets/surveyform.png";
+import html from "../assets/html.png";
+import css from "../assets/css.png";
+import js from "../assets/js.png";
+import react from "../assets/react.png";
+import tailwind from "../assets/tailwind.png";
+import appscript from "../assets/appsScript.png";
+
+const Projects = React.forwardRef((props, ref) => {
+
+  const projects = [
+    {
+      id: 1,
+      title: "Memory Game",
+      techused: [html, css, js],
+      description: [
+        "The Memory Game is a classic game designed to test and improve your memory skills. Developed using pure HTML, CSS, and JavaScript, this interactive web application challenges players to remember the sequence of blinking cells and replicate it.",
+      ],
+      imageUrl: memorygame,
+      link: "https://memorygame-html-9ust6w165-ankitas-projects-6fe3eca0.vercel.app/",
+      github:"https://github.com/Ankita18102/memorygame-html",
+    },
+    {
+      id: 2,
+      title: "Crud App",
+      techused: [react, tailwind],
+      description: [
+        "The CRUD (Create, Read, Update, Delete) App is a versatile web application built with React, Vite, and Tailwind CSS, empowering users to efficiently manage employee data.This app simplifies the process of organizing and maintaining employee records.",
+      ],
+      imageUrl: crud,
+      link: "https://add-employee-crud-app.vercel.app/",
+      github:"https://github.com/Ankita18102/crud-app",
+    },
+    {
+      id: 2,
+      title: "Survey Form",
+      techused: [react, tailwind, appscript],
+      description: [
+        "This survey form seamlessly combines React, Tailwind CSS, and Google Sheets API, ensuring smooth data collection. This integration allows all submitted survey responses to be automatically stored in a",
+        // eslint-disable-next-line react/jsx-key
+        <a
+          href="https://docs.google.com/spreadsheets/d/1TM8Xqwh8HI73tXR9R_ZZ5qCAcHmWx1icavxL7dx_VGA/edit#gid=0"
+          target="_blank"
+          className="text-teal-500"
+        >
+          {" "}Google Spreadsheet
+        </a>,
+        ", streamlining data management and analysis."
+    ],
+    
+      imageUrl: surveyform,
+      link: "https://covidsurveyform.vercel.app/",
+      github:"https://github.com/Ankita18102/surveyform",
+    },
+  ];
+  function handleDemo(link) {
+    window.open(link, "_blank");
+  }
+ 
   return (
     <>
-      <div className="bg-teal-500 text-white flex flex-col items-center justify-center text-center w-full pb-40 scroll-mt-16" ref={ref}>
+      <div
+        className="bg-teal-500 text-white flex flex-col items-center justify-center text-center w-full pb-40 scroll-mt-16"
+        ref={ref}
+      >
         <h1 className="text-3xl font-semibold mb-4 mt-20">
           My Recent Projects
         </h1>
@@ -11,31 +74,57 @@ const Projects = React.forwardRef((props,ref) => {
           Having immersed myself in a myriad of web applications across various
           industries and verticals, I eventually felt compelled to take on the
           challenge of crafting my own. Thus, I ventured into designing and
-          building my own projects using React
+          building my own projects using React.
         </p>
       </div>
+
       <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 w-full gap-6 px-10 md:px-20 lg:px-40 -mt-20 mb-20">
-        <div className=" h-72 rounded-2xl flex items-center justify-center shadow-lg hover:scale-105 transition duration-300 cursor-pointer text-3xl bg-sky-200">
-          1
-        </div>
-        <div className=" h-72 rounded-2xl flex items-center justify-center shadow-lg hover:scale-105 transition duration-300 cursor-pointer text-3xl bg-sky-200">
-          2
-        </div>
-        <div className=" h-72 rounded-2xl flex items-center justify-center shadow-lg hover:scale-105 transition duration-300 cursor-pointer text-3xl bg-sky-200">
-          3
-        </div>
-        <div className=" h-72 rounded-2xl flex items-center justify-center shadow-lg hover:scale-105 transition duration-300 cursor-pointer text-3xl bg-sky-200">
-          4
-        </div>
-        <div className=" h-72 rounded-2xl flex items-center justify-center shadow-lg hover:scale-105 transition duration-300 cursor-pointer text-3xl bg-sky-200">
-          5
-        </div>
-        <div className=" h-72 rounded-2xl flex items-center justify-center shadow-lg hover:scale-105 transition duration-300 cursor-pointer text-3xl bg-sky-200">
-          6
-        </div>
+        {projects.map((project) => (
+          <div
+            key={project.id}
+            className="col-span-1 project-slide bg-white rounded-xl shadow-md hover:shadow-lg transition duration-500 p-6 md:p-10"
+          >
+            <div className="relative overflow-hidden rounded-lg">
+              <img
+                src={project.imageUrl}
+                alt={project.title}
+                className="w-full h-full object-cover cursor-pointer hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+            <div className="pt-10">
+              <div className="flex items-center justify-between">
+              <h2 className="text-2xl font-semibold">{project.title}</h2>
+              <div className="flex items-center justify-center gap-2 my-4">
+                  {Array.isArray(project.techused) ? (
+                    project.techused.map((item, index) => (
+                      <img
+                        key={index}
+                        src={item}
+                        alt="technology used"
+                        className="w-10"
+                      />
+                    ))
+                  ) : (
+                    <li>{project.techused}</li>
+                  )}
+                </div>
+                </div>
+           
+            <p className="text-gray-800 text-lg my-4">{project.description}</p>
+            <div className="flex gap-4 text-sm xl:text-lg">
+              <button onClick={() => handleDemo(project.link)} className="bg-teal-500 hover:bg-teal-600 text-white font-medium py-3 px-4 rounded-full w-32 sm:w-40 whitespace-nowrap xl:whitespace-normal">
+                See Demo
+              </button>
+              <button onClick={() => handleDemo(project.github)} className="bg-gray-700 hover:bg-gray-800 text-white font-medium py-3 px-4 rounded-full w-32 sm:w-40 whitespace-nowrap xl:whitespace-normal">
+                GitHub Code
+              </button>
+            </div>
+            </div>
+          </div>
+        ))}
       </div>
     </>
   );
 });
-Projects.displayName='Projects'
+Projects.displayName = "Projects";
 export default Projects;

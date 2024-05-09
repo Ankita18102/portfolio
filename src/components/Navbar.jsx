@@ -4,10 +4,8 @@ import Hamburger from "hamburger-react";
 import { useEffect, useState } from "react";
 
 const Navbar = ({
-  aboutScroll,
-  skillsScroll,
-  experienceScroll,
-  projectsScroll,
+  // eslint-disable-next-line react/prop-types
+  aboutScroll,skillsScroll,experienceScroll,projectsScroll,
 }) => {
   const navigate = useNavigate();
   const handleScroll = () => {
@@ -29,7 +27,7 @@ const Navbar = ({
   return (
     <>
       <div
-        className={`flex text-teal-500 items-center justify-between w-full px-4 py-2 z-50 top-0 fixed md:hidden
+        className={`flex bg-white text-teal-500 items-center justify-between w-full px-4 py-2 z-40 top-0 fixed md:hidden
       ${
         isScrolled
           ? "bg-white shadow-md transform ease-in duration-200 translate-y-0"
@@ -66,7 +64,7 @@ const Navbar = ({
       </nav>
       {/* Drawer */}
       <div
-        className={`bg-white text-teal-600 text-xl fixed top-16 left-0 w-full z-50 shadow-md ${
+        className={`bg-white text-teal-500 text-xl fixed top-16 left-0 w-full z-50 shadow-md ${
           isOpen ? "block" : "hidden"
         }`}
       >

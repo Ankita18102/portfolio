@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import img1 from "./../assets/sendfast.png";
 import img2 from "./../assets/media.png";
 import img3 from "./../assets/onesolar.png";
+import img4 from "./../assets/teksi.png";
 import react from "../assets/react.png";
 import tailwind from "../assets/tailwind.png";
 import figma from "../assets/figma.png";
@@ -10,7 +11,6 @@ import postman from "../assets/postman.png";
 import framermotion from "../assets/framermotion.svg";
 
 const Experience = React.forwardRef((props, ref) => {
-  
   const projects = [
     {
       id: 1,
@@ -61,18 +61,6 @@ const Experience = React.forwardRef((props, ref) => {
     },
     {
       id: 2,
-      title: "Media Project",
-      techused: [react, tailwind, figma, postman],
-      description: [
-        "Developed YouTube-like video pages with functionalities such as watching shorts, login, logout, change password, and uploading videos.",
-        "Implemented login authentication and user-specific features, including viewing uploaded videos.",
-        "Utilized Postman for fetching data from the backend and ensured responsiveness using React and Tailwind CSS.",
-      ],
-      imageUrl: img2,
-      link: "",
-    },
-    {
-      id: 3,
       title: "One Solar",
       techused: [react, tailwind, figma, framermotion],
       description: [
@@ -95,7 +83,32 @@ const Experience = React.forwardRef((props, ref) => {
       imageUrl: img3,
       link: "https://one-solar.vercel.app/",
     },
+    {
+      id: 3,
+      title: "Media Project",
+      techused: [react, tailwind, figma, postman],
+      description: [
+        "Developed YouTube-like video pages with functionalities such as watching shorts, login, logout, change password, and uploading videos.",
+        "Implemented login authentication and user-specific features, including viewing uploaded videos.",
+        "Utilized Postman for fetching data from the backend and ensured responsiveness using React and Tailwind CSS.",
+      ],
+      imageUrl: img2,
+      link: "",
+    },
+    {
+      id: 4,
+      title: "Teksi App",
+      techused: [react, tailwind],
+      description: [
+        "Developed a ride-hailing web application (Teksi) using React and Tailwind CSS.",
+      ],
+      imageUrl: img4,
+      link: "https://teksiapp.vercel.app/",
+    },
   ];
+  function handleVisitWebsite(link) {
+    window.open(link, "_blank");
+  }
 
   return (
     <>
@@ -108,37 +121,39 @@ const Experience = React.forwardRef((props, ref) => {
           Here are some of the frontend development roles and projects I&apos;ve
           been involved in:
         </p>
-        <div className="flex flex-col xl:flex-row w-full gap-6 mt-20 px-10 md:px-20 lg:px-40">
-          {projects.map((project) => (
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 w-full gap-6 mt-20 px-10 md:px-20 lg:px-40">
+          {projects.slice(0, 3).map((project, index) => (
             <div
-              key={project.id}
-              className="project-slide bg-white rounded-xl shadow-md hover:shadow-lg p-10"
+              key={index}
+              className="col-span-1 project-slide bg-white rounded-xl shadow-md hover:shadow-lg transition duration-500 p-6 md:p-10"
             >
               <div className="relative">
-                <img
-                  src={project.imageUrl}
-                  alt={project.title}
-                  className="w-full rounded-lg mb-4 cursor-pointer"
-                />
-                {project.link && (
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="absolute inset-0 flex items-center justify-center"
-                  >
-                    <button
-                      className={`text-sm font-semibold bg-teal-500 text-white rounded-full px-2 py-1 shadow-lg transition-opacity duration-300 opacity-0 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 hover:opacity-100`}
-                    >
-                      Visit Website
-                    </button>
-                  </a>
-                )}
+                <div key={index}>
+                  <img
+                    src={project.imageUrl}
+                    alt={project.title}
+                    className="w-full rounded-lg cursor-pointer"
+                  />
+                  {project.link ? (
+                    <>
+                      <div className="absolute rounded-lg inset-0 bg-black bg-opacity-90 flex flex-col justify-center items-center opacity-0 hover:opacity-95 transition-opacity duration-300">
+                        <button
+                          className="bg-teal-500 hover:bg-teal-600 text-white font-medium py-2 px-4 rounded-full text-2xl"
+                          onClick={() => handleVisitWebsite(project.link)}
+                        >
+                          Visit Website
+                        </button>
+                      </div>
+                    </>
+                  ) : (
+                    <></>
+                  )}
+                </div>
               </div>
-
-              <div className="text-center">
-                <h3 className="text-2xl font-semibold mb-2">{project.title}</h3>
-                <div className="flex items-center justify-center mt-2 mb-6 gap-2">
+              <div className="text-center mt-10">
+                <h3 className="text-2xl font-semibold mb-">{project.title}</h3>
+                <div className="flex items-center justify-center gap-2 my-4">
                   {Array.isArray(project.techused) ? (
                     project.techused.map((item, index) => (
                       <img
@@ -152,18 +167,81 @@ const Experience = React.forwardRef((props, ref) => {
                     <li>{project.techused}</li>
                   )}
                 </div>
-                <ul className="text-md text-start list-disc">
+
+                <ul className="text-lg text-start list-disc ml-5">
                   {Array.isArray(project.description) ? (
                     project.description.map((desc, index) => (
-                      <li key={index}>{desc}</li>
+                      <li key={index} className="text-gray-800">
+                        {desc}
+                      </li>
                     ))
                   ) : (
-                    <li>{project.description}</li>
+                    <li className="text-gray-800">{project.description}</li>
                   )}
                 </ul>
               </div>
             </div>
           ))}
+          {/* <div className="col-start-2 col-span-1 flex justify-center">
+            {projects.slice(3).map((project, index) => (
+              <div
+                key={index}
+                className="project-slide bg-white rounded-xl shadow-md hover:shadow-lg transition duration-500 p-10"
+              >
+                <div className="relative">
+                  <div key={index}>
+                    <img
+                      src={project.imageUrl}
+                      alt={project.title}
+                      className="w-full rounded-lg mb-4 cursor-pointer"
+                    />
+                    {project.link ? (
+                    <>
+                      <div className="absolute inset-0 rounded-lg cursor-pointer flex items-center justify-center bg-black opacity-0 transition-opacity duration-300 hover:opacity-50">
+                        <button
+                          className="text-white text-2xl font-semibold"
+                          onClick={() => handleVisitWebsite(project.link)}
+                        >
+                          Visit Website
+                        </button>
+                      </div>
+                    </>
+                  ) : (
+                    <></>
+                  )}
+                  </div>
+                </div>
+                <div className="text-center">
+                  <h3 className="text-2xl font-semibold mb-2">
+                    {project.title}
+                  </h3>
+                  <div className="flex items-center justify-center mt-2 mb-6 gap-2">
+                    {Array.isArray(project.techused) ? (
+                      project.techused.map((item, index) => (
+                        <img
+                          key={index}
+                          src={item}
+                          alt="technology used"
+                          className="w-10"
+                        />
+                      ))
+                    ) : (
+                      <li>{project.techused}</li>
+                    )}
+                  </div>
+                  <ul className="text-md text-start list-disc">
+                    {Array.isArray(project.description) ? (
+                      project.description.map((desc, index) => (
+                        <li key={index}>{desc}</li>
+                      ))
+                    ) : (
+                      <li>{project.description}</li>
+                    )}
+                  </ul>
+                </div>
+              </div>
+            ))}
+          </div> */}
         </div>
       </div>
     </>
