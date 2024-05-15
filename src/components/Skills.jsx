@@ -12,6 +12,7 @@ import gitlab from "../assets/gitlab.png";
 import framermotion from "../assets/framermotion.svg";
 import appscript from "../assets/appsScript.png";
 import formspree from "../assets/formspree.svg";
+import vercel from "../assets/vercel.png";
 
 import React from "react";
 
@@ -102,7 +103,7 @@ const Skills = React.forwardRef((props, ref) => {
             <img src={git} alt="Git" />
           </a>
           <p className="text-teal-500 mt-8 mb-1">Development Tools:</p>
-          <div className="flex gap-2">
+          <div className="grid grid-cols-4 md:grid-cols-7 gap-2">
             <a
               href="https://code.visualstudio.com/"
               target="_blank"
@@ -144,6 +145,13 @@ const Skills = React.forwardRef((props, ref) => {
               rel="noopener noreferrer"
             >
               <img src={formspree} className="w-10" alt="Formspree" />
+            </a>
+            <a
+              href="https://vercel.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src={vercel} className="w-10" alt="Vercel" />
             </a>
           </div>
         </div>

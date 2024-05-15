@@ -8,9 +8,11 @@ import js from "../assets/js.png";
 import react from "../assets/react.png";
 import tailwind from "../assets/tailwind.png";
 import appscript from "../assets/appsScript.png";
+import textutils from "../assets/textutils.png";
+import cafe from "../assets/cafe.png";
+import calculator from "../assets/calculator.png";
 
 const Projects = React.forwardRef((props, ref) => {
-
   const projects = [
     {
       id: 1,
@@ -21,7 +23,7 @@ const Projects = React.forwardRef((props, ref) => {
       ],
       imageUrl: memorygame,
       link: "https://memorygame-html-9ust6w165-ankitas-projects-6fe3eca0.vercel.app/",
-      github:"https://github.com/Ankita18102/memorygame-html",
+      github: "https://github.com/Ankita18102/memorygame-html",
     },
     {
       id: 2,
@@ -32,10 +34,10 @@ const Projects = React.forwardRef((props, ref) => {
       ],
       imageUrl: crud,
       link: "https://add-employee-crud-app.vercel.app/",
-      github:"https://github.com/Ankita18102/crud-app",
+      github: "https://github.com/Ankita18102/crud-app",
     },
     {
-      id: 2,
+      id: 3,
       title: "Survey Form",
       techused: [react, tailwind, appscript],
       description: [
@@ -46,20 +48,56 @@ const Projects = React.forwardRef((props, ref) => {
           target="_blank"
           className="text-teal-500"
         >
-          {" "}Google Spreadsheet
+          {" "}
+          Google Spreadsheet
         </a>,
-        ", streamlining data management and analysis."
-    ],
-    
+        ", streamlining data management and analysis.",
+      ],
+
       imageUrl: surveyform,
       link: "https://covidsurveyform.vercel.app/",
-      github:"https://github.com/Ankita18102/surveyform",
+      github: "https://github.com/Ankita18102/surveyform",
+    },
+    {
+      id: 4,
+      title: "Text Utils",
+      techused: [react, tailwind],
+      description: [
+        "Explore a versatile text utility app, crafted with Tailwind CSS and React. Effortlessly transform text cases, encode/decode in Base64, execute search and replace, and enjoy convenient copy-paste functionalities. Experience instant text-to-speech functionality!",
+      ],
+
+      imageUrl: textutils,
+      link: "https://text-utils-ankita.vercel.app/",
+      github: "https://github.com/Ankita18102/textutils",
+    },
+    {
+      id: 5,
+      title: "Gourmet au Catering",
+      techused: [html, css],
+      description: [
+        "Explore Gourmet au Catering's frontend portfolio, a testament to exquisite design and culinary artistry crafted purely with HTML and CSS. From delectable menus to flawless contact forms, immerse yourself in the epitome of web development excellence.",
+      ],
+
+      imageUrl: cafe,
+      link: "https://cafe-ankita.vercel.app/",
+      github: "https://github.com/Ankita18102/cafe",
+    },
+    {
+      id: 6,
+      title: "Calculator",
+      techused: [html, css, js],
+      description: [
+        "Discover a sleek HTML, CSS, and JavaScript calculator, combining simplicity with functionality. Effortlessly perform calculations with intuitive design. Experience the elegance of web development in this minimalist yet powerful tool.",
+      ],
+      imageUrl: calculator,
+      link: "https://calculator-ankita.vercel.app/",
+      github: "https://github.com/Ankita18102/calculator",
     },
   ];
   function handleDemo(link) {
     window.open(link, "_blank");
   }
- 
+
   return (
     <>
       <div
@@ -93,8 +131,8 @@ const Projects = React.forwardRef((props, ref) => {
             </div>
             <div className="pt-10">
               <div className="flex items-center justify-between">
-              <h2 className="text-2xl font-semibold">{project.title}</h2>
-              <div className="flex items-center justify-center gap-2 my-4">
+                <h2 className="text-2xl font-semibold">{project.title}</h2>
+                <div className="flex items-center justify-center gap-2 my-4">
                   {Array.isArray(project.techused) ? (
                     project.techused.map((item, index) => (
                       <img
@@ -108,17 +146,25 @@ const Projects = React.forwardRef((props, ref) => {
                     <li>{project.techused}</li>
                   )}
                 </div>
-                </div>
-           
-            <p className="text-gray-800 text-lg my-4">{project.description}</p>
-            <div className="flex gap-4 text-sm xl:text-lg">
-              <button onClick={() => handleDemo(project.link)} className="bg-teal-500 hover:bg-teal-600 text-white font-medium py-3 px-4 rounded-full w-32 sm:w-40 whitespace-nowrap xl:whitespace-normal">
-                See Demo
-              </button>
-              <button onClick={() => handleDemo(project.github)} className="bg-gray-700 hover:bg-gray-800 text-white font-medium py-3 px-4 rounded-full w-32 sm:w-40 whitespace-nowrap xl:whitespace-normal">
-                GitHub Code
-              </button>
-            </div>
+              </div>
+
+              <p className="text-gray-800 text-lg my-4">
+                {project.description}
+              </p>
+              <div className="flex gap-4 text-sm xl:text-lg">
+                <button
+                  onClick={() => handleDemo(project.link)}
+                  className="bg-teal-500 hover:bg-teal-600 text-white font-medium py-3 px-4 rounded-full w-32 sm:w-40 whitespace-nowrap xl:whitespace-normal"
+                >
+                  See Demo
+                </button>
+                <button
+                  onClick={() => handleDemo(project.github)}
+                  className="bg-gray-700 hover:bg-gray-800 text-white font-medium py-3 px-4 rounded-full w-32 sm:w-40 whitespace-nowrap xl:whitespace-normal"
+                >
+                  GitHub Code
+                </button>
+              </div>
             </div>
           </div>
         ))}
