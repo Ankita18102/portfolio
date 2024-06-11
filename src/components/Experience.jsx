@@ -61,7 +61,7 @@ const Experience = React.forwardRef((props, ref) => {
     },
     {
       id: 2,
-      title: "One Solar",
+      title: "Grid Plus",
       techused: [react, tailwind, figma, framermotion],
       description: [
         "Designed and developed 4 pages with different sections based on Figma designs.",
@@ -70,7 +70,7 @@ const Experience = React.forwardRef((props, ref) => {
         <p>
           Implemented a{" "}
           <a
-            href="https://one-solar.vercel.app/"
+            href="https://www.gridplus.in/"
             target="_blank"
             className="text-teal-500"
           >
@@ -79,9 +79,10 @@ const Experience = React.forwardRef((props, ref) => {
           to automatically calculate savings based on system size or monthly
           bills with solar energy.
         </p>,
+         "Used EmailJS to get email from form submission.",
       ],
       imageUrl: img3,
-      link: "https://one-solar.vercel.app/",
+      link: "https://www.gridplus.in/",
     },
     {
       id: 3,
@@ -182,7 +183,7 @@ const Experience = React.forwardRef((props, ref) => {
               </div>
             </div>
           ))}
-          {/* <div className="col-start-2 col-span-1 flex justify-center">
+          <div className="col-start-2 col-span-1 flex justify-center">
             {projects.slice(3).map((project, index) => (
               <div
                 key={index}
@@ -241,7 +242,7 @@ const Experience = React.forwardRef((props, ref) => {
                 </div>
               </div>
             ))}
-          </div> */}
+          </div>
         </div>
       </div>
     </>

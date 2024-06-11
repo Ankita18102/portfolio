@@ -12,9 +12,15 @@ const About = React.forwardRef((props, ref) => {
           I design and code beautifully simple things, and I love what I do.
         </p>
         <img src={heroimg} alt="Icon"/>
-        <button className="border-2 rounded-full px-3 py-2 text-white font-roboto-slab bg-gradient-to-br from-teal-600 to-teal-500 text-lg md:text-xl shadow-lg border-teal-600 hover:from-white hover:to-teal-100 hover:text-teal-600 transition duration-300 my-4">
-          Download Resume
-        </button>
+        <a
+            href="https://drive.google.com/file/d/1-UUwj1F-O_kJUPCCccDLpO-DfD3YAaU7/view?usp=drive_link" 
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <button className="border-2 rounded-full px-3 py-2 text-white font-roboto-slab bg-gradient-to-br from-teal-600 to-teal-500 text-lg md:text-xl shadow-lg border-teal-600 hover:from-white hover:to-teal-100 hover:text-teal-600 transition duration-300 my-4">
+              Download Resume
+            </button>
+          </a>
         </div>
         
         <div
@@ -25,7 +31,7 @@ const About = React.forwardRef((props, ref) => {
             Hi, I&apos;m Ankita. Nice to meet you.
           </h1>
           <p className="text-xl w-full lg:w-1/2 ">
-            In my ten months as a web designer at a company, I&apos;ve loved
+            In my 11+ months as a web designer at a company, I&apos;ve loved
             every moment of creating cool websites. I&apos;m always eager to
             learn and make things better. Whether it&apos;s designing
             user-friendly pages or dreaming up new ideas, I find joy in the
